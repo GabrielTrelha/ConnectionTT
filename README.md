@@ -24,14 +24,63 @@ Versões do Advance Steel: **somente a 2026 foi testada.** A arquitetura prevê 
 
 ## Instalação
 
-1. Baixe `ConnectionTT-Setup-<versão>.exe` na página de **Releases** do repositório.
-2. **Feche o Advance Steel.**
-3. Execute o instalador. Ele pede permissão de administrador.
-4. Abra o Advance Steel e use o botão **Conexões** na aba **Plug-ins**, ou digite:
+**Precisa ter:** Windows 64 bits e o **Advance Steel 2026** instalado e aberto pelo menos uma vez nesse computador. Outras versões do Advance Steel ainda não são suportadas.
+
+### 1. Baixar o instalador
+
+1. Abra a página de versões: **<https://github.com/GabrielTrelha/ConnectionTT/releases>**
+2. Na versão mais recente, desça até a seção **Assets** (clique nela se estiver fechada).
+3. Clique em **`ConnectionTT-Setup-1.0.0.exe`** para baixar. O número muda conforme a versão.
+
+> Não use o botão verde **Code > Download ZIP** da página inicial: ele baixa o código-fonte, não o programa.
+> O arquivo `ConnectionTT.bundle.zip` da mesma lista é para a [instalação manual](#instalação-manual-sem-o-instalador); quem usa o instalador não precisa dele.
+
+### 2. Instalar
+
+1. **Feche o Advance Steel** (e qualquer AutoCAD aberto).
+2. Abra a pasta **Downloads** e dê dois cliques em `ConnectionTT-Setup-1.0.0.exe`.
+3. O Windows pode mostrar **"O Windows protegeu o computador"**. Isso acontece porque o instalador ainda não tem assinatura digital. Clique em **Mais informações** e depois em **Executar assim mesmo**.
+4. Confirme a pergunta de permissão de administrador (**Sim**). Se o seu usuário não for administrador, peça para o responsável pela TI.
+5. Siga o assistente: aceite a licença e clique em **Instalar** e depois em **Concluir**.
+
+Se aparecer uma mensagem de erro no final, os arquivos foram copiados mas a conexão não foi registrada. Envie o arquivo `C:\ProgramData\ConnectionTT\setup.log` para quem te passou o instalador.
+
+### 3. Usar
+
+1. Abra o Advance Steel.
+2. Na aba **Plug-ins**, clique em **Conexões** e escolha **Suporte de corrimão**. Outra forma é digitar na linha de comando:
    ```
    AstM4CrConByVb CTT_Handrail
    ```
-   Selecione a viga e depois o tubo do corrimão.
+3. Selecione **a viga** e depois **o tubo do corrimão** (tubo redondo).
+4. Ajuste os parâmetros na janela que abrir.
+
+### Instalação manual (sem o instalador)
+
+Use este caminho se o instalador for bloqueado pelo antivírus ou pela TI.
+
+1. Na mesma página de **Releases**, baixe **`ConnectionTT.bundle.zip`**.
+2. **Feche o Advance Steel.**
+3. Abra o **PowerShell como administrador**: menu Iniciar, digite `PowerShell`, clique com o botão direito e escolha **Executar como administrador**.
+4. Cole os comandos abaixo e tecle Enter. Se o ZIP não estiver na pasta Downloads, ajuste a primeira linha.
+
+```powershell
+$zip  = "$env:USERPROFILE\Downloads\ConnectionTT.bundle.zip"
+$dest = "C:\Program Files\Autodesk\ApplicationPlugins"
+Unblock-File $zip
+Expand-Archive $zip -DestinationPath $dest -Force
+$c = "$dest\ConnectionTT.bundle\Contents"
+& "$c\Setup\ConnectionTT.Setup.exe" register --joints "$c\Joints\ConnectionTT.Joints.dll"
+```
+
+A última linha registra a conexão no Advance Steel, com backup do banco antes. Ela deve terminar com **"Registro concluido"**. Se aparecer `[ERRO]`, envie o arquivo `C:\ProgramData\ConnectionTT\setup.log`.
+
+Para desinstalar, com o Advance Steel fechado e o PowerShell como administrador:
+
+```powershell
+& "C:\Program Files\Autodesk\ApplicationPlugins\ConnectionTT.bundle\Contents\Setup\ConnectionTT.Setup.exe" unregister
+Remove-Item "C:\Program Files\Autodesk\ApplicationPlugins\ConnectionTT.bundle" -Recurse -Force
+```
 
 ### O que o instalador faz
 

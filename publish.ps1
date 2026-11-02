@@ -95,7 +95,10 @@ if (-not $NoZip) {
     Step "ZIP"
     $zip = Join-Path $artifacts "ConnectionTT.bundle.zip"
     if (Test-Path -LiteralPath $zip) { Remove-Item -LiteralPath $zip -Force }
-    Compress-Archive -Path $bundle -DestinationPath $zip
+    # ZipFile em vez de Compress-Archive: no PowerShell 5.1 o Compress-Archive grava os caminhos com "\",
+    # o que quebra a extracao fora do Explorer do Windows.
+    Add-Type -AssemblyName System.IO.Compression.FileSystem
+    [System.IO.Compression.ZipFile]::CreateFromDirectory($bundle, $zip, [System.IO.Compression.CompressionLevel]::Optimal, $true)
     Done $zip
 }
 
