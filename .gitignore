@@ -1,0 +1,34 @@
+## .NET build artifacts
+bin/
+obj/
+*.user
+*.suo
+.vs/
+artifacts/
+
+## Publish / deploy output
+Bundle/*/Contents/*.dll
+Bundle/*/Contents/*.exe
+Bundle/*/Contents/*.json
+!Bundle/*/Contents/.gitkeep
+
+## OS / editor
+Thumbs.db
+Desktop.ini
+.idea/
+*.swp
+
+## Local config
+*.local.json
+
+## AutoCAD / Advance Steel
+*.dwg
+*.bak
+*.dwl
+*.dwl2
+*.sv$
+## Arquivos locais
+backup/
+*.psd
+*.zip
+scripts/*.csv

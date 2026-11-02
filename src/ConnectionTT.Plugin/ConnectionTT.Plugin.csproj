@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ConnectionTT.Plugin</RootNamespace>
+    <AssemblyName>ConnectionTT.Plugin</AssemblyName>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <UseWPF>true</UseWPF>
+    <AutoCADPath Condition="'$(AutoCADPath)' == ''">C:\Program Files\Autodesk\AutoCAD 2026</AutoCADPath>
+    <AdvanceSteelPath Condition="'$(AdvanceSteelPath)' == ''">C:\Program Files\Autodesk\AutoCAD 2026\ADVS</AdvanceSteelPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectionTT.Core\ConnectionTT.Core.csproj" />
+    <ProjectReference Include="..\ConnectionTT.IpcContracts\ConnectionTT.IpcContracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="acmgd">
+      <HintPath>$(AutoCADPath)\acmgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="accoremgd">
+      <HintPath>$(AutoCADPath)\accoremgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="acdbmgd">
+      <HintPath>$(AutoCADPath)\acdbmgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AdWindows">
+      <HintPath>$(AutoCADPath)\AdWindows.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="AcWindows">
+      <HintPath>$(AutoCADPath)\AcWindows.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASObjectsMgd">
+      <HintPath>$(AdvanceSteelPath)\ASObjectsMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASCADLinkMgd">
+      <HintPath>$(AdvanceSteelPath)\ASCADLinkMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASMgd">
+      <HintPath>$(AdvanceSteelPath)\ASMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASGeometryMgd">
+      <HintPath>$(AdvanceSteelPath)\ASGeometryMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Paleta de conexoes: catalogo e imagens vao para a pasta de saida (bin\...\Palette) -->
+  <ItemGroup>
+    <None Include="Palette\**\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

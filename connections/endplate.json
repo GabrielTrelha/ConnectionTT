@@ -1,0 +1,15 @@
+{
+  "$schema": "../docs/connection-template.schema.json",
+  "name": "endplate",
+  "version": "1.0.0",
+  "description": "Ligacao por chapa de topo (end plate) com parafusos",
+  "inputs": {
+    "plateThickness": { "type": "number", "default": 10, "description": "Espessura da chapa (mm)" },
+    "plateWidth": { "type": "number", "default": 200, "description": "Largura da chapa (mm)" },
+    "plateHeight": { "type": "number", "default": 300, "description": "Altura da chapa (mm)" },
+    "boltDiameter": { "type": "string", "default": "M16", "description": "Diametro do parafuso" },
+    "boltsRows": { "type": "integer", "default": 3, "description": "Numero de fileiras de parafusos" },
+    "material": { "type": "string", "default": "S355JR", "description": "Material da chapa" }
+  },
+  "generator": "endplate.generator"
+}

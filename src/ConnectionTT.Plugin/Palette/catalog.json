@@ -1,0 +1,22 @@
+{
+  // Catalogo da paleta Connection TT (botao "Conexões" / comando CTTCONEXOES).
+  // Para incluir uma conexao nova: acrescente um item em "connections" e coloque as imagens em Palette\images.
+  // "command" e o texto digitado na linha de comando; "category" deve ser o "id" de uma categoria.
+  "categories": [
+    { "id": "corrimao", "name": "Corrimão", "icon": "cat_railing.png" }
+  ],
+  "connections": [
+    {
+      "id": "CTT_Handrail",
+      "category": "corrimao",
+      "name": "Suporte de corrimão",
+      "command": "AstM4CrConByVb CTT_Handrail",
+      "icon": "CTT_Handrail_icon.png",
+      "preview": "CTT_Handrail_preview.png",
+      "selection": "1. Viga, 2. Tubo do corrimão",
+      "profiles": "Viga = perfil I; Tubo = tubo redondo",
+      "description": "Chapa de ancoragem soldada na alma da viga e chapa de conexão soldada no tubo, unidas por parafusos.",
+      "options": "Ancoragem antes/depois do tubo, alturas iguais, parafusos, soldas, ajuste da ponta do tubo, chapa no fundo do tubo."
+    }
+  ]
+}

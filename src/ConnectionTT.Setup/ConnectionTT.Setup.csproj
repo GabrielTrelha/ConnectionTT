@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    ConnectionTT.Setup - registra as conexoes .NET do ConnectionTT no Advance Steel.
+    Faz o que antes era manual: copia o ConnectionTT.Joints.dll para a pasta ADVS e grava as linhas
+    em RulesDllSigned / HRLDefinition (AstorRules), com backup do banco antes de qualquer alteracao.
+    Usado pelo instalador (installer\ConnectionTT.iss) e tambem pode ser rodado sozinho (ver a ajuda: ConnectionTT.Setup help).
+    Nao referencia o AutoCAD nem o Advance Steel: compila em qualquer maquina com o SDK do .NET 8.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ConnectionTT.Setup</RootNamespace>
+    <AssemblyName>ConnectionTT.Setup</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <!-- Depende do runtime do .NET 8, que o Advance Steel 2026 ja exige na maquina. -->
+    <SelfContained>false</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+</Project>

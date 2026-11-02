@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <RootNamespace>ConnectionTT.Joints</RootNamespace>
+    <AssemblyName>ConnectionTT.Joints</AssemblyName>
+    <AdvanceSteelPath Condition="'$(AdvanceSteelPath)' == ''">C:\Program Files\Autodesk\AutoCAD 2026\ADVS</AdvanceSteelPath>
+    <!-- Conflitos de versao vindos das DLLs do Advance Steel (inofensivos) -->
+    <NoWarn>$(NoWarn);MSB3277;CS8618</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ASObjectsMgd">
+      <HintPath>$(AdvanceSteelPath)\ASObjectsMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASCADLinkMgd">
+      <HintPath>$(AdvanceSteelPath)\ASCADLinkMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASGeometryMgd">
+      <HintPath>$(AdvanceSteelPath)\ASGeometryMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="ASProfilesMgd">
+      <HintPath>$(AdvanceSteelPath)\ASProfilesMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="DotNetRootsMgd">
+      <HintPath>$(AdvanceSteelPath)\DotNetRootsMgd.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- Imagens esquematicas das abas (recurso embutido). LogicalName = "<AssemblyName>.<arquivo>",
+       mesmo formato do exemplo oficial (ASNetJoints.Dummy.png chamado como "Dummy.png"). -->
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Layout.png" LogicalName="ConnectionTT.Joints.CTT_Handrail_Layout.png" />
+    <EmbeddedResource Include="Images\Bolts.png" LogicalName="ConnectionTT.Joints.CTT_Handrail_Bolts.png" />
+  </ItemGroup>
+
+</Project>

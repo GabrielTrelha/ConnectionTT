@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ConnectionTT.Bridge</AssemblyName>
+    <RootNamespace>ConnectionTT.Bridge</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ConnectionTT.Core\ConnectionTT.Core.csproj" />
+    <ProjectReference Include="..\ConnectionTT.IpcContracts\ConnectionTT.IpcContracts.csproj" />
+  </ItemGroup>
+
+</Project>

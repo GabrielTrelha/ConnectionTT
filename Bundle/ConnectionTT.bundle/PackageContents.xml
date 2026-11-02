@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage
+  SchemaVersion="1.0"
+  AutodeskProduct="AutoCAD"
+  ProductType="Application"
+  Name="ConnectionTT"
+  AppVersion="1.0.0"
+  Description="Connection TT - conexoes portaveis e MCP de detalhamento para o Advance Steel"
+  Author="Connection TT contributors"
+  ProductCode="{D25B4F73-AA6A-4BB3-9444-D58AA022C2E5}"
+  UpgradeCode="{B87E396E-7D5A-4F04-B9CA-473D25C3E5CD}"
+  Helpfile=""
+  SupportedLocales="Enu">
+  <CompanyDetails Name="Connection TT" Url="" Email="" />
+  <Components Description="Connection TT for Advance Steel 2026">
+    <ComponentEntry
+      AppName="ConnectionTT"
+      Version="1.0.0"
+      ModuleName="./Contents/2026/ConnectionTT.Plugin.dll"
+      AppDescription="Connection TT plugin for Advance Steel"
+      AppType=".Net"
+      LoadOnAutoCADStartup="True"
+      LoadOnCommandInvocation="True"
+      LoadOnAppearance="False">
+      <RuntimeRequirements OS="Win64" Platform="AutoCAD*" SeriesMin="R25.1" SeriesMax="R25.1" />
+      <Commands GroupName="ConnectionTT">
+        <Command Local="CTTSTATUS" Global="CTTSTATUS" />
+        <Command Local="CTTMCP" Global="CTTMCP" />
+        <Command Local="CTTCONEXOES" Global="CTTCONEXOES" />
+      </Commands>
+    </ComponentEntry>
+  </Components>
+</ApplicationPackage>
