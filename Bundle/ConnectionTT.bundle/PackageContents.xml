@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ApplicationPackage
   SchemaVersion="1.0"
   AutodeskProduct="AutoCAD"
@@ -11,7 +11,7 @@
   UpgradeCode="{B87E396E-7D5A-4F04-B9CA-473D25C3E5CD}"
   Helpfile=""
   SupportedLocales="Enu">
-  <CompanyDetails Name="Connection TT" Url="" Email="" />
+  <CompanyDetails Name="Connection TT" Url="https://github.com/GabrielTrelha/ConnectionTT" Email="" />
   <Components Description="Connection TT for Advance Steel 2026">
     <ComponentEntry
       AppName="ConnectionTT"
@@ -31,3 +31,4 @@
     </ComponentEntry>
   </Components>
 </ApplicationPackage>
+
